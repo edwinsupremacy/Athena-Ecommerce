@@ -1,0 +1,54 @@
+.inventory-pager {
+  display: flex;
+  align-items: center;
+  
+}
+.inventory-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 270px));
+  flex: 1;
+  min-width: 0;
+  justify-content: start;
+  gap: 0;
+}
+.pager-arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.pager-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+
+/* MOBILE TEMPLATE - inventory area.
+   Purpose: prevent inventory content from forcing horizontal scroll on phones.
+   Tweak values only: padding, title font-size, gaps after you add inventory cards/items.
+   Keep min-width: 0 when inventory sits inside a flex row.
+
+@media (max-width: 768px) {
+  .hi {
+    min-width: 0;
+    width: 100%;
+    padding: 12px;
+  }
+
+  .hi h1 {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 480px) {
+  .hi {
+    padding: 10px;
+  }
+
+  .hi h1 {
+    font-size: 20px;
+  }
+}
+*/

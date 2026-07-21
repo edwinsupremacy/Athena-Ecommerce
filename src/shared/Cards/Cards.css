@@ -1,0 +1,33 @@
+.card-container{
+  display: flex;
+  flex-wrap: wrap;
+  
+  
+}
+
+.card{
+  margin: 20px;
+  border: 2px solid #ededed;
+  cursor: pointer;
+  padding: 20px;
+}
+.card-img{
+    width: 13rem;
+    
+}
+
+
+.card-price{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.bag{
+  color: #535353;
+}
+
+.bag:hover{
+  color: black;
+}

@@ -1,0 +1,63 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.container{
+  width: 100%;
+  
+  min-height: 100vh;
+  background: #fcfcfc;  
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffbe46;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #000000 transparent;
+}
+
+/* MOBILE TEMPLATE - global page rules.
+   Purpose: phone-wide defaults and overflow safety.
+   Tweak values only after uncommenting: --mobile-page-padding, scrollbar width, font-size.
+   Do not put desktop-only sizes here; keep this block for max-width: 768px screens.
+
+@media (max-width: 768px) {
+  :root {
+    --mobile-page-padding: 12px;
+    --mobile-navbar-height: 56px;
+  }
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  .container {
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+}
+*/

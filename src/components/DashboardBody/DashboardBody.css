@@ -1,0 +1,66 @@
+.dashboardbody-container {
+  display: flex;
+  background-color: rgb(255, 255, 255);
+ 
+}
+
+.filter-container {
+  
+  flex: 0 0 15%;
+  position: sticky;
+  top: 60px;
+  align-self: flex-start;
+  border-right: 2px solid #535353;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.inventory-container {
+  flex: 8;
+  background-color: rgb(255, 255, 255);
+  min-width: 0;
+}
+
+/* MOBILE TEMPLATE - dashboard body layout.
+   Purpose: make the filter/inventory area fit small screens.
+   Tweak values only: height, open sidebar width, transition speed.
+   Keep overflow hidden on .filter-container so collapsed sidebars do not leak content.
+
+@media (max-width: 768px) {
+  .dashboardbody-container {
+    display: flex;
+    height: 700px;
+  }
+
+  .filter-container {
+    transition: width 0.25s ease;
+    overflow: hidden;
+  }
+
+  .filter-container.open {
+    width: 80%;
+    max-width: 280px;
+  }
+
+  .filter-container.collapsed {
+    width: 0;
+  }
+
+  .inventory-container {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboardbody-container {
+    height: 640px;
+  }
+
+  .filter-container.open {
+    width: 86%;
+    max-width: 260px;
+  }
+}
+*/

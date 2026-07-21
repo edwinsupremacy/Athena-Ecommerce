@@ -1,0 +1,93 @@
+.slideshow {
+  height: 100%;
+  position: relative;
+}
+
+.slideshow-images {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-position: center;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  -webkit-user-select: none;
+animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    } }
+
+.arrowStylesLeft {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 32px;
+  font-size: 45px;
+  color: black;
+  z-index: 1;
+  cursor: pointer;
+  border: none;
+  background: none;
+
+  outline: none;
+
+  padding: 0;
+}
+
+.arrowStylesRight {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 32px;
+  font-size: 50px;
+  color: black;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.arrowStylesLeft:hover,
+.arrowStylesRight:hover {
+  color: rgb(255, 255, 255);
+}
+
+/* MOBILE TEMPLATE - slideshow.
+   Purpose: keep images and arrows usable on narrow screens.
+   Tweak values only: border-radius, arrow offset, arrow font-size.
+   Do not remove object-fit: cover unless you want the image shape to change.
+
+@media (max-width: 768px) {
+  .slideshow-images {
+    border-radius: 6px;
+    object-fit: cover;
+  }
+
+  .arrowStylesLeft {
+    left: 12px;
+    font-size: 34px;
+  }
+
+  .arrowStylesRight {
+    right: 12px;
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 480px) {
+  .arrowStylesLeft {
+    left: 8px;
+    font-size: 28px;
+  }
+
+  .arrowStylesRight {
+    right: 8px;
+    font-size: 32px;
+  }
+}
+*/

@@ -1,0 +1,177 @@
+.checkout-cntr {
+    padding: 20px 30px 60px;
+     max-width: 1300px; 
+  }
+  
+  .checkout-heading {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .coupon-banner {
+    background-color: #f2f2f7;
+    padding: 14px 18px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+  
+  .coupon-link {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .checkout-layout {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+  }
+  
+  .billing-section {
+    flex: 1;
+  }
+  
+  .order-section {
+    flex: 0 0 380px;
+  }
+  
+  .section-heading {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 12px;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .form-group {
+    margin-bottom: 18px;
+    flex: 1;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  
+  .required {
+    color: #c00;
+    margin-left: 2px;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #e0e0e0;
+    background-color: #f7f7f9;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .mt-8 {
+    margin-top: 8px;
+  }
+  
+  .order-box {
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    padding: 20px;
+  }
+  
+  .order-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+  }
+  
+  .order-header {
+    font-weight: 700;
+  }
+  
+  .order-size {
+    font-size: 12px;
+    color: #777;
+  }
+  
+  .order-total {
+    font-weight: 700;
+    border-bottom: none;
+  }
+  
+  .payment-method {
+    margin-top: 15px;
+  }
+  
+  .payment-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 12px 0 6px;
+  }
+  
+  .payment-icons {
+    font-size: 12px;
+    color: #888;
+    margin: 6px 0;
+  }
+  .payment-icons img{
+    height: 100px;
+  }
+  
+  .payment-note {
+    font-size: 12px;
+    color: #777;
+    line-height: 1.5;
+  }
+  
+  .privacy-note {
+    font-size: 12px;
+    color: #777;
+    line-height: 1.5;
+    margin-top: 15px;
+  }
+  
+  .policy-link {
+    color: #c00;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .terms-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    margin-top: 15px;
+    line-height: 1.5;
+  }
+  
+  .place-order-btn {
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 14px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  
+  .place-order-btn:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+  } 

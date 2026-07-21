@@ -1,0 +1,25 @@
+.slideshow-container {
+    width: 100%;
+    height: 580px;
+    margin: 0 auto;
+}
+
+/* MOBILE TEMPLATE - dashboard section.
+   Purpose: control the slideshow block height before DashboardBody begins.
+   Tweak values only: height, margin, border radius if you add one.
+   Do not change width away from 100%; that can bring back horizontal scroll.
+
+@media (max-width: 768px) {
+  .slideshow-container {
+    width: 100%;
+    height: 320px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .slideshow-container {
+    height: 260px;
+  }
+}
+*/
