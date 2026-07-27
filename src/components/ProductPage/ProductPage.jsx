@@ -48,7 +48,7 @@ const ProductPage = () => {
 
         <div className="description-box">
           <div className="shoe-title">{item.name}</div>
-          <div className="description-story">Choose your preferred available size before adding this item to your cart.</div>
+         <div className="description-story">{item.description || "No description available for this product."}</div>
           <div className="price">Ksh {Number(item.price).toLocaleString("en-KE")}</div>
           <div className="instock">{inStock ? "instock" : "out of stock"}</div>
 
