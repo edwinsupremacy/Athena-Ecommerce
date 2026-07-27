@@ -1,18 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Button.css";
 
-const sizes = [39, 40, 41, 42, 43, 44, 45];
-
-const Buttons = () => {
-  const [selectedSize, setSelectedSize] = useState(43);
+const Buttons = ({ sizes, selectedSize, onSelectSize }) => {
 
   return (
     <div className="size-box-row">
-      {sizes.map((size) => (
+      {sizes.map(({ size, stockAvailable }) => (
         <button
           key={size}
           className={`size-box ${selectedSize === size ? "active" : ""}`}
-          onClick={() => setSelectedSize(size)}
+          disabled={stockAvailable < 1}
+          onClick={() => onSelectSize(size)}
         >
           {size}
         </button>

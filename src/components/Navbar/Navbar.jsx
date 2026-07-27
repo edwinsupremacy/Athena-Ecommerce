@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import white_search_icon from "../../assets/search-w.png";
-import black_search_icon from "../../assets/search-b.png";
-import light_mode_icon from "../../assets/day.png";
-import dark_mode_icon from "../../assets/night.png";
 import logo from "../../assets/logo.png";
-import { BaggageClaim, User } from "lucide-react";
+import { BaggageClaim } from "lucide-react";
 
 const Navbar = ({ fixed }) => {
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+
+  const searchProducts = (event) => {
+    event.preventDefault();
+    navigate(search.trim() ? `/?search=${encodeURIComponent(search.trim())}` : "/");
+  };
+
   return (
     <div className={`navbar ${fixed ? "navbar-fixed" : ""}`}>
       <img src={logo} alt="" className="logo" />
@@ -19,28 +24,27 @@ const Navbar = ({ fixed }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/inventory/men" className="nav-link">
+            <NavLink to="/?category=Men" className="nav-link">
               Men
             </NavLink>
           </li>
           <li>
-            <NavLink to="/inventory/women" className="nav-link">
+            <NavLink to="/?category=Women" className="nav-link">
               Women
             </NavLink>
           </li>
           <li>
-            <NavLink to="/inventory/children" className="nav-link">
+            <NavLink to="/?category=Kids" className="nav-link">
               Children
             </NavLink>
           </li>
         
       </ul>
-      <div className="search-box">
-        <input type="text" placeholder="Search" />
-        <img src={white_search_icon} alt="" />
-      </div>
+      <form className="search-box" onSubmit={searchProducts}>
+        <input type="text" placeholder="Search" value={search} onChange={(event) => setSearch(event.target.value)} />
+        <button type="submit" aria-label="Search products"><img src={white_search_icon} alt="" /></button>
+      </form>
       <div className="toggle-icon">
-        <User />
         <Link to="/cart" className="cart-icon-link">
           <BaggageClaim />
         </Link>

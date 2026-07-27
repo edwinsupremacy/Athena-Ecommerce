@@ -5,6 +5,8 @@ import Dashboard from "./components/dashboard/dashboard";
 import ProductPage from "./components/ProductPage/ProductPage";
 import CartPage from "./components/CartPage/CartPage";
 import Checkout from "./components/Checkout/Checkout";
+import { CartProvider } from "./context/CartContext";
+import NotFound from "./shared/Pages/NotFound";
 
 
 const App = () => {
@@ -26,6 +28,7 @@ const App = () => {
   }, []);
 
   return (
+    <CartProvider>
     <BrowserRouter>
       <div className="container">
         <Navbar fixed={showNavbar} />
@@ -34,12 +37,14 @@ const App = () => {
             path="/"
             element={<Dashboard dashboardBodyRef={dashboardBodyRef} />}
           />
-          <Route path="/product" element={<ProductPage />} />
+          <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<Checkout/>} />
+          <Route path="*" element={<NotFound />} />
         </Routes>{" "}
       </div>
     </BrowserRouter>
+    </CartProvider>
   );
 };
 

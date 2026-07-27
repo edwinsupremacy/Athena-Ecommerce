@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../Navbar/Navbar";
 import Slideshow from "../Slideshow/Slideshow";
 import './dashboard.css'
 import DashboardBody from "../DashboardBody/DashboardBody";

@@ -1,21 +1,20 @@
-import React from "react";
-import { useState } from "react";
-import { Menu } from "lucide-react";
+import React, { useState } from "react";
 import Inventory from "./Inventory/Inventory";
 import Filtersidebar from "./FiltersSidebar/Filtersidebar";
 import "./DashboardBody.css";
 
 const DashboardBody = () => {
+  const [filters, setFilters] = useState({ shoeType: "", color: "", minPrice: "", maxPrice: "" });
 
   return (
     <div className="dashboardbody-container">
       <div className="filter-container">
-        <Filtersidebar />
+        <Filtersidebar filters={filters} onChange={setFilters} />
       </div>
 
       <div className="inventory-container">
         
-        <Inventory />
+        <Inventory filters={filters} />
       </div>
     </div>
   );

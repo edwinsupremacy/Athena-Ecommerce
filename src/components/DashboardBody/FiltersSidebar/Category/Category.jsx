@@ -2,15 +2,15 @@ import React from 'react'
 import CategoryTypes from './CategoryTypes/CategoryTypes'
 import "./Category.css"
 
-const Category = () => {
+const Category = ({ value, onChange }) => {
   return (
     <div>
       <div className='sidebar-title'>Category</div>
-      <CategoryTypes label="All" name="category" value="all" />
-      <CategoryTypes label="Sneakers" name="category" value="men" />
-      <CategoryTypes label="Flats" name="category" value="women" />
-      <CategoryTypes label="Sandles" name="category" value="children" />
-      <CategoryTypes label="Heels" name="category" value="shoes" />
+      <CategoryTypes label="All" name="category" value="" checked={value === ""} onChange={onChange} />
+      <CategoryTypes label="Sneakers" name="category" value="Sneakers" checked={value === "Sneakers"} onChange={onChange} />
+      <CategoryTypes label="Flats" name="category" value="Flats" checked={value === "Flats"} onChange={onChange} />
+      <CategoryTypes label="Sandles" name="category" value="Sandals" checked={value === "Sandals"} onChange={onChange} />
+      <CategoryTypes label="Heels" name="category" value="Heels" checked={value === "Heels"} onChange={onChange} />
     
     </div>
   );

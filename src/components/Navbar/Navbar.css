@@ -114,6 +114,12 @@ ul li{
     cursor: pointer;
     
 }
+.search-box button {
+    display: flex;
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
 .cart-icon-link {
   color: inherit;
   display: flex;

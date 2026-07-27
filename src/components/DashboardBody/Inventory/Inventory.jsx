@@ -1,7 +1,7 @@
-import React from "react";
-import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import Cards from "../../../shared/Cards/Cards";
+import { getItems } from "../../../api/catalog";
 import "./Inventory.css";
 // const testProducts = [
 //   { id: 1 },
@@ -18,10 +18,30 @@ import "./Inventory.css";
 
 // const CARDS_PER_PAGE = 5;
 
-const Inventory = () => {
+const Inventory = ({ filters }) => {
+  const [searchParams] = useSearchParams();
+  const [items, setItems] = useState([]);
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const category = searchParams.get("category");
+  const search = searchParams.get("search");
 
+  useEffect(() => {
+    let isCurrent = true;
+    setError("");
+    setIsLoading(true);
 
+    getItems({ category, search, ...filters })
+      .then((result) => isCurrent && setItems(result))
+      .catch((requestError) => {
+        if (!isCurrent) return;
+        setItems([]);
+        if (requestError.response?.status !== 404) setError(requestError.response?.data || "Unable to load products.");
+      })
+      .finally(() => isCurrent && setIsLoading(false));
 
+    return () => { isCurrent = false; };
+  }, [category, search, filters]);
   // const [page, setPage] = useState(0);
   // const totalPages = Math.ceil(testProducts.length / CARDS_PER_PAGE);
   // const start = page * CARDS_PER_PAGE;
@@ -35,17 +55,7 @@ const Inventory = () => {
       <h1>Inventory</h1>
       <div className="inventory-pager">
         <div className="inventory-cards">
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards  />
-          <Cards  />
-          <Cards  />
-          <Cards  />
-          <Cards  />
-          <Cards  />
-          
+          {isLoading ? <p>Loading products...</p> : error ? <p>{error}</p> : items.length === 0 ? <p>No products match your filters.</p> : items.map((item) => <Cards key={item.id} item={item} />)}
         </div>
       </div>
     </div>
