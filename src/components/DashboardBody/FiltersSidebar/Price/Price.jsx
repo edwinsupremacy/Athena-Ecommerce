@@ -1,4 +1,5 @@
 import React from "react";
+import './Price.css'
 
 const priceRanges = [
   { label: "All", value: "-" },

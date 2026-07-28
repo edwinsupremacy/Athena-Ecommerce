@@ -1,33 +1,47 @@
-.card-container{
+.card-container {
   display: flex;
   flex-wrap: wrap;
-  
-  
+
+
 }
 
-.card{
+.card {
   margin: 20px;
   border: 2px solid #ededed;
   cursor: pointer;
   padding: 20px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
-.card-img{
-    width: 13rem;
-    
+
+.card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+  border-color: #ddd;
+}
+
+.card-img {
+  width: 13rem;
+
 }
 
 
-.card-price{
+.card-price {
   display: flex;
   align-items: center;
   justify-content: space-between;
 
 }
 
-.bag{
+.bag {
   color: #535353;
+  transition: color 0.15s ease, transform 0.15s ease;
+  transform: scale(1.1);
 }
 
-.bag:hover{
+.bag:hover {
   color: black;
+}
+
+.bag:active {
+  transform: scale(0.9);
 }

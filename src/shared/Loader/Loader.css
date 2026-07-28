@@ -1,0 +1,19 @@
+.loader-inline, .loader-fullpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: #666;
+}
+.loader-fullpage { min-height: 300px; width: 100%; }
+.spinner {
+  width: 34px;
+  height: 34px;
+  border: 3px solid #eee;
+  border-top-color: #ffbe46;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+.loader-label { font-size: 14px; }
+@keyframes spin { to { transform: rotate(360deg); } }

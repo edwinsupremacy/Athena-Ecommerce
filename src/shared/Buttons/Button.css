@@ -21,3 +21,7 @@
   background-color: #e0e0e0;
   border: 2px solid #000;
 }
+
+.size-box { transition: background-color 0.15s ease, transform 0.15s ease; }
+.size-box:hover:not(:disabled):not(.active) { background-color: #e6e6e6; }
+.size-box:active:not(:disabled) { transform: scale(0.95); }

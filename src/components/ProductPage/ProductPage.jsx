@@ -4,6 +4,7 @@ import "./ProductPage.css";
 import Buttons from "../../shared/Buttons/Buttons";
 import { getItem } from "../../api/catalog";
 import { useCart } from "../../context/CartContext";
+import toast from "react-hot-toast";
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -29,7 +30,10 @@ const ProductPage = () => {
   const inStock = item.sizes.some((size) => size.stockAvailable > 0);
   const selectedStock = item.sizes.find((size) => size.size === selectedSize)?.stockAvailable ?? 0;
   const addToCart = () => {
-    if (selectedSize) addItem(item, selectedSize, quantity);
+    if (selectedSize) {
+      addItem(item, selectedSize, quantity);
+      toast.success(`${item.name} (Size ${selectedSize}) added to cart`);
+    }
   };
 
   return (
@@ -48,7 +52,7 @@ const ProductPage = () => {
 
         <div className="description-box">
           <div className="shoe-title">{item.name}</div>
-         <div className="description-story">{item.description || "No description available for this product."}</div>
+          <div className="description-story">{item.description || "No description available for this product."}</div>
           <div className="price">Ksh {Number(item.price).toLocaleString("en-KE")}</div>
           <div className="instock">{inStock ? "instock" : "out of stock"}</div>
 

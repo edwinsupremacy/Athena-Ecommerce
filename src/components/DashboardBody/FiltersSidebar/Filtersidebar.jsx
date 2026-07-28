@@ -1,5 +1,5 @@
 import React from "react";
-import './filtersidebar.css'
+import './Filtersidebar.css'
 import Category from "./Category/Category";
 import Price from "./Price/Price";
 import Color from "./Color/Color";

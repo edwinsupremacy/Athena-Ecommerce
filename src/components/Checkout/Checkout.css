@@ -170,6 +170,9 @@
     margin-top: 20px;
     cursor: pointer;
   }
+  .place-order-btn { transition: filter 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease; }
+.place-order-btn:hover:not(:disabled) { filter: brightness(1.15); box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+.place-order-btn:active:not(:disabled) { transform: scale(0.98); }
   
   .place-order-btn:disabled {
     background-color: #aaa;

@@ -27,3 +27,8 @@ export const checkout = async (payload) => {
   const response = await api.post("/transaction/checkout-items", payload);
   return response.data;
 };
+
+export const getOrderStatus = async (orderReference) => {
+  const response = await api.get(`/transaction/status/${orderReference}`);
+  return response.data;
+};

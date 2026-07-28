@@ -10,7 +10,7 @@ const slides = Object.values(images).map((mod, i) => ({
   id: i,
   image: mod.default,
 }));
-console.log(images);
+
 
 const Dashboard = ({dashboardBodyRef}) => {
   return (

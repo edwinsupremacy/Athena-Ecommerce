@@ -2,6 +2,7 @@ import React from "react";
 import "./CartPage.css";
 import { Link } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
+import toast from "react-hot-toast";
 
 const CartPage = () => {
   const { items, updateQuantity, removeItem, emptyCart } = useCart();
@@ -20,10 +21,14 @@ const CartPage = () => {
               <div className="col-product product-cell"><img src={item.imageUrl} alt={item.name} className="cart-item-img" /><div><div className="cart-item-name">{item.name}</div><div className="cart-item-size"><strong>Size:</strong> {item.size}</div></div></div>
               <div className="col-price">{formatPrice(item.price)}</div>
               <div className="col-qty"><div className="cart-qty-selector"><button className="cart-qty-btn" onClick={() => updateQuantity(item.id, item.size, -1)}>−</button><span className="cart-qty-value">{item.quantity}</span><button className="cart-qty-btn" disabled={item.quantity >= item.stockAvailable} onClick={() => updateQuantity(item.id, item.size, 1)}>+</button></div></div>
-              <div className="col-subtotal subtotal-cell">{formatPrice(item.price * item.quantity)}<button className="remove-btn" onClick={() => removeItem(item.id, item.size)}>×</button></div>
+              <div className="col-subtotal subtotal-cell">{formatPrice(item.price * item.quantity)}
+                <button className="remove-btn" onClick={() => { removeItem(item.id, item.size); toast(`${item.name} removed from cart`); }}>×</button>
+              </div>
             </div>
           ))}
-          <div className="cart-actions"><button className="empty-cart-btn" onClick={emptyCart}>Empty cart</button></div>
+          <div className="cart-actions">
+             <button className="empty-cart-btn" onClick={() => { emptyCart(); toast("Cart emptied"); }}>Empty cart</button>
+          </div>
         </div>
         <div className="cart-totals-box"><div className="totals-heading">Cart totals</div><div className="totals-row"><span>Subtotal</span><span>{formatPrice(subtotal)}</span></div><div className="totals-row totals-total"><span>Total</span><span>{formatPrice(subtotal)}</span></div><Link to="/checkout" className="cart-icon-link"><button className="checkout-btn" disabled={items.length === 0}>Proceed to checkout</button></Link></div>
       </div>
