@@ -1,9 +1,10 @@
 .dashboardbody-container {
   display: flex;
-  background-color: rgb(255, 255, 255);
- 
+  background-color: var(--surface);
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 32px;
 }
-
 .filter-container {
   
   flex: 0 0 15%;

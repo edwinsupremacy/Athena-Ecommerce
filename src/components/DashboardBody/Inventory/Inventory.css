@@ -1,4 +1,87 @@
+.inventory {
+  padding: 32px 32px 60px;
+}
+
+.inventory-header {
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+  border-bottom: 1px dashed var(--line-strong);
+}
+.inventory-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brass-dark);
+  margin-bottom: 6px;
+}
+.inventory-count {
+  color: var(--ink-soft);
+  font-size: 14px;
+  margin-top: 4px;
+}
+
 .inventory-pager {
+  display: flex;
+  align-items: center;
+}
+
+.inventory-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  flex: 1;
+  min-width: 0;
+  justify-content: start;
+  gap: 24px;
+}
+
+.inventory-state {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  padding: 56px 24px;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--ink-soft);
+}
+
+.inventory-state svg {
+  width: 32px;
+  height: 32px;
+  color: var(--brass-dark);
+  margin-bottom: 4px;
+}
+
+.inventory-state h2 {
+  font-size: 18px;
+  color: var(--ink);
+}
+
+.inventory-state p {
+  font-size: 14px;
+  max-width: 360px;
+}
+
+.inventory-state--error svg {
+  color: var(--leather);
+}
+
+.pager-arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.pager-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+/* .inventory-pager {
   display: flex;
   align-items: center;
   
@@ -22,7 +105,7 @@
   opacity: 0.3;
   cursor: not-allowed;
 }
-
+ */
 
 /* MOBILE TEMPLATE - inventory area.
    Purpose: prevent inventory content from forcing horizontal scroll on phones.
