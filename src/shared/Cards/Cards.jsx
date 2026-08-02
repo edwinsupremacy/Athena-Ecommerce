@@ -1,12 +1,29 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, CheckCircle } from "lucide-react";
+import { useCart } from "../../context/CartContext";
+import toast from "react-hot-toast";
 import './Cards.css'
-
 
 
 const Cards = ({ item }) => {
   const navigate = useNavigate();
+  const { items, addItem } = useCart();
+
+  const inStock = item.sizes.some((size) => size.stockAvailable > 0);
+  const alreadyInCart = items.some((cartItem) => cartItem.id === item.id);
+
+  const handleBagClick = (event) => {
+    event.stopPropagation();
+    if (alreadyInCart) {
+      navigate("/cart");
+      return;
+    }
+    if (!inStock) return;
+    const defaultSize = item.sizes.find((size) => size.stockAvailable > 0)?.size;
+    addItem(item, defaultSize, 1);
+    toast.success(`${item.name} added to cart`);
+  };
 
   return (
     <>

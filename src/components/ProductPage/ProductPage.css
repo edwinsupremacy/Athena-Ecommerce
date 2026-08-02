@@ -2,115 +2,112 @@
   width: 100%;
   height: 100%;
 }
-/* 
-.title{
 
-} */
 .product-page-container {
   display: flex;
   align-items: flex-start;
-  margin-left: 30px;
-  margin-right: 30px;
-  gap: 20px;
-}
-
-.small-images {
-  flex: 0 0 8%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.small-images img {
-  /* height: 90px;
-  width: 90px;
-  margin: 5px; */
-
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  margin: 0;
-
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px 24px;
+  gap: 56px;
 }
 
 .main-image {
-  flex: 0 0 48%;
+  flex: 0 0 50%;
+  align-self: flex-start;
+  position: sticky;
+  top: 24px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  background-color: rgb(245, 245, 245);
+  justify-content: center;
+  height: min(72vh, 620px);
+  background: #f6f4f1;
+  border-radius: 16px;
+  overflow: hidden;
 }
 
 .main-image img {
-  /* height: 100%;
   width: 100%;
-  object-fit: cover;
-  margin: 5px; */
-
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  margin: 0;
-
-  border: 3px solid #000000;
-  border-radius: 10px;
-}
-.description-box {
-  flex: 0 0 38%;
-  /* background-color: rgb(247, 58, 0); */
   height: 100%;
-  margin: 5px;
-  background-color: transparent;
-  padding: 5px;
-  
+  object-fit: cover;
+  object-position: center 30%;
+  transition: transform 0.35s ease;
+}
+.main-image:hover img {
+  transform: scale(1.045);
+}
+
+.description-box {
+  flex: 1;
+  padding-top: 8px;
 }
 
 .shoe-title {
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.instock-pill {
+  display: inline-flex;
+  align-items: center;
+  background-color: #e6f4ea;
+  color: #1e7e34;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-top: 12px;
+  letter-spacing: 0.2px;
+}
+
+.instock-pill.out {
+  background-color: #fbe9e7;
+  color: #b3261e;
+}
+
+.price {
+  margin-top: 14px;
+  font-size: 26px;
+  font-weight: 600;
+  color: #211712;
 }
 
 .description-story {
-  margin-top: 1rem;
-}
-.price {
-  margin-top: 1rem;
-  font-size: 30px;
-  font-weight: 500;
-}
-
-.instock {
-  display: inline-block;
-  background-color: #e6f4ea;
-  color: #1e7e34;
-  font-size: 13px;
-  padding: 4px 12px;
-  border-radius: 6px;
-  margin-top: 0.75rem;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #e7ded0;
+  color: #6f6154;
+  line-height: 1.6;
+  font-size: 15px;
 }
 
 .pay-buttons {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   margin-top: 2rem;
+  flex-wrap: wrap;
 }
 .add-cart-btn {
-  background-color: #999;
+  background-color: #211712;
   color: #fff;
   border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
+  padding: 13px 24px;
+  min-height: 44px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
 }
 .buy-now-btn {
   background-color: #f28b82;
   color: #fff;
   border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
+  padding: 13px 24px;
+  min-height: 44px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
 }
 .add-cart-btn, .buy-now-btn, .qty-btn {
   transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
@@ -167,29 +164,32 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 40px;
-  height: 40px;
-  padding: 0 12px;
-  background-color: #f0f0f0;
-  border: none;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 14px;
+  background-color: #f6f4f1;
+  border: 1.5px solid transparent;
   border-radius: 8px;
   font-size: 15px;
+  font-weight: 500;
   cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 
 .size-box.active {
-  background-color: #e0e0e0;
-  border: 2px solid #000;
+  background-color: #211712;
+  color: #fff;
+  border-color: #211712;
 }
-
 
 .title {
   font-size: 13px;
   font-weight: 500;
   color: #999;
   letter-spacing: 0.3px;
-  margin: 18px 0 22px 30px;
-  padding-bottom: 4px;
+  max-width: 1200px;
+  margin: 16px auto 14px;
+  padding: 0 30px 4px;
 }
 
 .title::after {

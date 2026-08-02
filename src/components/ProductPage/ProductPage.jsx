@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 const ProductPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { addItem } = useCart();
+  const { items, addItem } = useCart();
   const [item, setItem] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
   const [quantity, setQuantity] = useState(1);
@@ -29,6 +29,7 @@ const ProductPage = () => {
 
   const inStock = item.sizes.some((size) => size.stockAvailable > 0);
   const selectedStock = item.sizes.find((size) => size.size === selectedSize)?.stockAvailable ?? 0;
+  const alreadyInCart = items.some((cartItem) => cartItem.id === item.id && cartItem.size === selectedSize);
   const addToCart = () => {
     if (selectedSize) {
       addItem(item, selectedSize, quantity);
@@ -40,21 +41,15 @@ const ProductPage = () => {
     <div className="cntr">
       <div className="title">Home</div>
       <div className="product-page-container">
-        <div className="small-images">
-          <img src={item.imageUrl} alt={item.name} className="image" />
-          <img src={item.imageUrl} alt={item.name} className="image" />
-          <img src={item.imageUrl} alt={item.name} className="image" />
-        </div>
-
         <div className="main-image">
           <img src={item.imageUrl} alt={item.name} className="image" />
         </div>
 
         <div className="description-box">
           <div className="shoe-title">{item.name}</div>
-          <div className="description-story">{item.description || "No description available for this product."}</div>
+          <div className={`instock-pill ${inStock ? "" : "out"}`}>{inStock ? "In stock" : "Out of stock"}</div>
           <div className="price">Ksh {Number(item.price).toLocaleString("en-KE")}</div>
-          <div className="instock">{inStock ? "instock" : "out of stock"}</div>
+          <div className="description-story">{item.description || "No description available for this product."}</div>
 
           <div className="others">
             <div className="size-toggles">
@@ -70,7 +65,9 @@ const ProductPage = () => {
                 <span className="qty-value">{quantity}</span>
                 <button className="qty-btn" disabled={quantity >= selectedStock} onClick={() => setQuantity((current) => current + 1)}>+</button>
               </div>
-              <button className="add-cart-btn" disabled={!selectedSize} onClick={addToCart}>+ Add to cart</button>
+              <button className={`add-cart-btn ${alreadyInCart ? "in-cart" : ""}`} disabled={!selectedSize} onClick={addToCart}>
+                {alreadyInCart ? "Already  In cart" : "+ Add to cart"}
+              </button>
               <button className="buy-now-btn" disabled={!selectedSize} onClick={() => { addToCart(); navigate("/cart"); }}>Buy now</button>
             </div>
           </div>

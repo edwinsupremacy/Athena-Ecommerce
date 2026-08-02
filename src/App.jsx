@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Dashboard from "./components/dashboard/dashboard";
 import ProductPage from "./components/ProductPage/ProductPage";
@@ -9,9 +9,14 @@ import { CartProvider } from "./context/CartContext";
 import NotFound from "./shared/Pages/NotFound";
 
 
-const App = () => {
+const AppRoutes = () => {
   const dashboardBodyRef = useRef(null);
   const [showNavbar, setShowNavbar] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setShowNavbar(false);
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,24 +33,28 @@ const App = () => {
   }, []);
 
   return (
-    <CartProvider>
-    <BrowserRouter>
-      <div className="container">
-        <Navbar fixed={showNavbar} />
-        <Routes>
-          <Route
-            path="/"
-            element={<Dashboard dashboardBodyRef={dashboardBodyRef} />}
-          />
-          <Route path="/product/:id" element={<ProductPage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/checkout" element={<Checkout/>} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>{" "}
-      </div>
-    </BrowserRouter>
-    </CartProvider>
+    <div className="container">
+      <Navbar fixed={showNavbar} />
+      <Routes>
+        <Route
+          path="/"
+          element={<Dashboard dashboardBodyRef={dashboardBodyRef} />}
+        />
+        <Route path="/product/:id" element={<ProductPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </div>
   );
 };
+
+const App = () => (
+  <CartProvider>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  </CartProvider>
+);
 
 export default App;
