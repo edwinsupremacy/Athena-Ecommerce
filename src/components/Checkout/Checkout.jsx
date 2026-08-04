@@ -50,8 +50,8 @@ const Checkout = () => {
       toast.success(`Order ${result.orderReference} created — check your phone`);
     } catch (requestError) {
       const message = requestError.response?.data || "Unable to place your order. Please try again.";
-+     setError(message);
-+     toast.error(message);
+      setError(message);
+      toast.error(message);
     } finally {
       setSubmitting(false);
     }

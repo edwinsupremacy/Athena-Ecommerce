@@ -35,11 +35,11 @@ const Slideshow = ({ slides }) => {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <button className="arrowStylesLeft" onClick={goToPrevious} aria-label="Previous slide">
-        <ArrowLeft />
+     <button className="arrowStylesLeft" onClick={goToPrevious} aria-label="Previous slide">
+        <ArrowLeft size={22} />
       </button>
       <button className="arrowStylesRight" onClick={goToNext} aria-label="Next slide">
-        <ArrowRight />
+        <ArrowRight size={22} />
       </button>
 
       {slides.map((slide, index) => (

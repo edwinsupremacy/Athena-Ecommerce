@@ -12,3 +12,9 @@
 .filtersidebar > div:last-child {
   border-bottom: none;
 }
+
+@media (max-width: 768px) {
+  .filtersidebar {
+    padding: 8px 20px 24px;
+  }
+}

@@ -56,19 +56,9 @@
   margin-bottom: 4px;
 }
 
-.inventory-state h2 {
-  font-size: 18px;
-  color: var(--ink);
-}
-
-.inventory-state p {
-  font-size: 14px;
-  max-width: 360px;
-}
-
-.inventory-state--error svg {
-  color: var(--leather);
-}
+.inventory-state h2 { font-size: 18px; color: var(--ink); }
+.inventory-state p { font-size: 14px; max-width: 360px; }
+.inventory-state--error svg { color: var(--leather); }
 
 .pager-arrow {
   background: none;
@@ -76,62 +66,17 @@
   cursor: pointer;
   padding: 8px;
 }
-
-.pager-arrow:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
-/* .inventory-pager {
-  display: flex;
-  align-items: center;
-  
-}
-.inventory-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 270px));
-  flex: 1;
-  min-width: 0;
-  justify-content: start;
-  gap: 0;
-}
-.pager-arrow {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-}
-
-.pager-arrow:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
- */
-
-/* MOBILE TEMPLATE - inventory area.
-   Purpose: prevent inventory content from forcing horizontal scroll on phones.
-   Tweak values only: padding, title font-size, gaps after you add inventory cards/items.
-   Keep min-width: 0 when inventory sits inside a flex row.
+.pager-arrow:disabled { opacity: 0.3; cursor: not-allowed; }
 
 @media (max-width: 768px) {
-  .hi {
-    min-width: 0;
-    width: 100%;
-    padding: 12px;
-  }
-
-  .hi h1 {
-    font-size: 24px;
-    line-height: 1.2;
-  }
+  .inventory { padding: 16px 16px 40px; }
+  .inventory-header { padding-bottom: 14px; margin-bottom: 16px; }
+  .inventory-header h1 { font-size: 22px; }
+  .inventory-cards { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .inventory-state { padding: 40px 16px; }
 }
 
-@media (max-width: 480px) {
-  .hi {
-    padding: 10px;
-  }
-
-  .hi h1 {
-    font-size: 20px;
-  }
+@media (max-width: 360px) {
+  .inventory { padding: 12px 12px 32px; }
+  .inventory-cards { gap: 10px; }
 }
-*/

@@ -11,7 +11,7 @@ const priceRanges = [
 ];
 
 const Price = ({ value, onChange }) => (
-  <div className="ml">
+  <div>
     <h2 className="sidebar-title price-title">Price</h2>
     {priceRanges.map((range) => (
       <label className="sidebar-label-container" key={range.value}>

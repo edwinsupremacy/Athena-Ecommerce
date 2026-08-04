@@ -26,22 +26,26 @@ const Cards = ({ item }) => {
   };
 
   return (
-    <>
-      <section className="card-container">
-        <section className="card" onClick={() => navigate(`/product/${item.id}`)}>
-          <img src={item.imageUrl} alt={item.name} className='card-img'/>
-          <div className="card-details">
-            <h3 className="card-title">{item.name}</h3>
-          </div>
-          <section className="card-price">
-            <div className="current-price">Ksh {Number(item.price).toLocaleString("en-KE")}</div>
-            <div className="bag">
-              <ShoppingCart />
-            </div>
-          </section>
+    <section className="card-container">
+      <section className="card" onClick={() => navigate(`/product/${item.id}`)}>
+        <img src={item.imageUrl} alt={item.name} className='card-img'/>
+        <div className="card-details">
+          <h3 className="card-title">{item.name}</h3>
+        </div>
+        <section className="card-price">
+          <div className="current-price">Ksh {Number(item.price).toLocaleString("en-KE")}</div>
+          <button
+            type="button"
+            className="bag"
+            onClick={handleBagClick}
+            aria-label={alreadyInCart ? "Already in cart, view cart" : inStock ? "Add to cart" : "Out of stock"}
+            disabled={!inStock && !alreadyInCart}
+          >
+            {alreadyInCart ? <CheckCircle /> : <ShoppingCart />}
+          </button>
         </section>
       </section>
-    </>
+    </section>
   );
 };
 

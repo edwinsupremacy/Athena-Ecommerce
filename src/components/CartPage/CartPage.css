@@ -88,7 +88,11 @@
   border: none;
   font-size: 16px;
   cursor: pointer;
-  width: 20px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cart-qty-btn {
@@ -120,9 +124,14 @@
 .remove-btn {
   background: none;
   border: none;
-  font-size: 18px;
+  font-size: 20px;
   color: #999;
   cursor: pointer;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: color 0.15s ease, transform 0.15s ease;
 }
 
@@ -202,7 +211,7 @@
 
 .cart-totals-box {
   flex: 0 0 300px;
-  border: 1px solid #d00;
+  border: 1px solid var(--line-strong, #d7c9b3);
   border-radius: 8px;
   padding: 20px;
 }

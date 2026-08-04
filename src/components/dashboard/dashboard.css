@@ -1,8 +1,3 @@
-/* .slideshow-container {
-    width: 100%;
-    height: 580px;
-    margin: 0 auto;
-} */
 .slideshow-container {
     width: 100%;
     max-width: 1360px;
@@ -10,22 +5,17 @@
     margin: 24px auto 0;
     padding: 0 32px;
 }
-/* MOBILE TEMPLATE - dashboard section.
-   Purpose: control the slideshow block height before DashboardBody begins.
-   Tweak values only: height, margin, border radius if you add one.
-   Do not change width away from 100%; that can bring back horizontal scroll.
 
 @media (max-width: 768px) {
   .slideshow-container {
-    width: 100%;
-    height: 320px;
-    margin: 0 auto;
+    height: 220px;
+    margin: 12px auto 0;
+    padding: 0 16px;
   }
 }
 
 @media (max-width: 480px) {
   .slideshow-container {
-    height: 260px;
+    height: 180px;
   }
 }
-*/

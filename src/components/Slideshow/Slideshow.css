@@ -16,7 +16,6 @@
   display: block;
   user-select: none;
   -webkit-user-select: none;
-
   opacity: 0;
   transition: opacity 0.8s ease-in-out;
   pointer-events: none;
@@ -27,53 +26,37 @@
   pointer-events: auto;
 }
 
-@keyframes slideIn {
-  from {
-    transform: translateX(100%);
-  }
-
-  to {
-    transform: translateX(0);
-  }
-}
-
-.arrowStylesLeft {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-  left: 32px;
-  font-size: 45px;
-  color: black;
-  z-index: 1;
-  cursor: pointer;
-  border: none;
-  background: none;
-
-  outline: none;
-
-  padding: 0;
-}
-
+.arrowStylesLeft,
 .arrowStylesRight {
   position: absolute;
   top: 50%;
-  transform: translate(0, -50%);
-  right: 32px;
-    font-size: 45px;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: black;
   z-index: 1;
   cursor: pointer;
   border: none;
   background: none;
-
   outline: none;
-
   padding: 0;
+  transition: color 0.15s ease, transform 0.15s ease;
 }
+
+.arrowStylesLeft { left: 12px; }
+.arrowStylesRight { right: 12px; }
 
 .arrowStylesLeft:hover,
 .arrowStylesRight:hover {
   color: rgb(255, 255, 255);
+}
+
+.arrowStylesLeft:active,
+.arrowStylesRight:active {
+  transform: translateY(-50%) scale(0.85);
 }
 
 .slideshow-dots {
@@ -94,7 +77,14 @@
   border: none;
   cursor: pointer;
   padding: 0;
+  position: relative;
   transition: width 0.2s ease, background-color 0.2s ease;
+}
+
+.dot::before {
+  content: "";
+  position: absolute;
+  inset: -11px -6px;
 }
 
 .dot.active {
@@ -103,37 +93,8 @@
   border-radius: 5px;
 }
 
-/* MOBILE TEMPLATE - slideshow.
-   Purpose: keep images and arrows usable on narrow screens.
-   Tweak values only: border-radius, arrow offset, arrow font-size.
-   Do not remove object-fit: cover unless you want the image shape to change.
-
 @media (max-width: 768px) {
-  .slideshow-images {
-    border-radius: 6px;
-    object-fit: cover;
-  }
-
-  .arrowStylesLeft {
-    left: 12px;
-    font-size: 34px;
-  }
-
-  .arrowStylesRight {
-    right: 12px;
-    font-size: 38px;
-  }
+  .slideshow-images { border-radius: 6px; }
+  .arrowStylesLeft { left: 6px; }
+  .arrowStylesRight { right: 6px; }
 }
-
-@media (max-width: 480px) {
-  .arrowStylesLeft {
-    left: 8px;
-    font-size: 28px;
-  }
-
-  .arrowStylesRight {
-    right: 8px;
-    font-size: 32px;
-  }
-}
-*/
